@@ -6,6 +6,18 @@
  */
 
 module.exports = {
+	change: function (req, res) {
+		Device.update({id: req.param('devId')},{
+			x: req.param('x'),
+			y: req.param('y')
+		}).exec(function(err, updatedDevice) {
+			if (err) {
+				return res.serverError(err);
+			}
+
+			return res.ok(updatedDevice);
+		});
+	},
 	socket: function (req, res) {
 			sails.log.debug("Hi!");
 			if (req.isSocket == true) {

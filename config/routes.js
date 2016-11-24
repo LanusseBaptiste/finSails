@@ -36,7 +36,8 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'GET /socket': 'DeviceController.socket'
+  'GET /socket': 'DeviceController.socket',
+  'GET /device/:devId/:x/:y': 'DeviceController.change'
 
   /***************************************************************************
   *                                                                          *
